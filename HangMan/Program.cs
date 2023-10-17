@@ -63,21 +63,17 @@ namespace HangMan
                 } while (!InputValid);
 
                 // Reveals the word in GuessedWord if the letter is correct.
-                bool CorrectGuess = false;
-                if (SecretWord.Contains(Guess))
+                bool CorrectGuess = SecretWord.Contains(Guess);
+                if (CorrectGuess)
                 {
                     for (int letter = 0; letter < SecretWord.Length; letter++)
                     {
                         if (SecretWord[letter] == Guess)
                         {
                             GuessedWord[letter] = SecretWord[letter];
-                            CorrectGuess = true;
                         }
                     }
-                    if (CorrectGuess)
-                    {
-                        Lives++;
-                    }
+                    Lives++;
                 }
                 bool WordsEqual = true;
                 for (int i = 0; i < SecretWord.Length; i++)
